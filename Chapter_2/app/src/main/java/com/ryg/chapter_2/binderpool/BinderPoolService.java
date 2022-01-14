@@ -8,24 +8,24 @@ import android.util.Log;
 
 public class BinderPoolService extends Service {
 
-    private static final String TAG = "BinderPoolService";
+  private static final String TAG = "BinderPoolService";
 
-    private Binder mBinderPool = new BinderPool.BinderPoolImpl();
+  private final Binder mBinderPool = new BinderPool.BinderPoolImpl();
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
+  @Override
+  public void onCreate() {
+    super.onCreate();
+  }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        Log.d(TAG, "onBind");
-        return mBinderPool;
-    }
+  @Override
+  public IBinder onBind(Intent intent) {
+    Log.d(TAG, "onBind");
+    return mBinderPool;
+  }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
+  @Override
+  public void onDestroy() {
+    super.onDestroy();
+  }
 
 }
